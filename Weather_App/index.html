@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Forecasting</title>
+    <link rel="shortcut icon" href="resources/faviconicon.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
 </head>
-<body class="bg-slate-500">
-    
+<body class="min-h-screen bg-gray-900 text-white font-sans p-4">
+    <div class="container mx-auto">
+        <div class="header sticky top-0 bg-gray-900 flex justify-between items-center mb-4 py-4">
+            <h2 class="text-xl font-bold">Weather Me</h2>
+            <div class="weather-input flex space-x-2">
+                <input type="text" name="city" id="city_input" placeholder="Enter city name" class="bg-gray-700 border-none p-3 text-base rounded-full text-white focus:outline-none">
+                <button type="button" id="searchBtn" class="bg-white text-gray-900 font-medium text-base px-4 py-2 rounded-full hover:bg-gray-200">
+                    <i class="fa-solid fa-magnifying-glass"></i>Search
+                </button>
+                <button type="button" id="locationBtn" class="bg-blue-900 text-white font-medium text-base px-4 py-2 rounded-full hover:bg-blue-950">
+                    <i class='bx bx-location-plus'></i>Current Location
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
