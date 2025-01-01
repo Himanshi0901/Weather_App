@@ -11,18 +11,243 @@
 </head>
 <body class="min-h-screen bg-gray-900 text-white font-sans p-4">
     <div class="container mx-auto">
-        <div class="header sticky top-0 bg-gray-900 flex justify-between items-center mb-4 py-4">
-            <h2 class="text-xl font-bold">Weather Me</h2>
-            <div class="weather-input flex space-x-2">
-                <input type="text" name="city" id="city_input" placeholder="Enter city name" class="bg-gray-700 border-none p-3 text-base rounded-full text-white focus:outline-none">
-                <button type="button" id="searchBtn" class="bg-white text-gray-900 font-medium text-base px-4 py-2 rounded-full hover:bg-gray-200">
+        <div class="header sticky top-0 bg-gray-900 flex justify-between items-center mb-10 py-4">
+            <h2 class="text-2xl">Weather Me</h2>
+            <div class="weather-input flex gap-2">
+                <input type="text" name="city" id="city_input" placeholder="Enter city name" class="bg-gray-700 px-4 py-3 rounded-full text-white focus:outline-none">
+                <button type="button" id="searchBtn" class="px-6 py-3  bg-white text-gray-900 font-medium text-base rounded-full hover:bg-gray-200">
                     <i class="fa-solid fa-magnifying-glass"></i>Search
                 </button>
-                <button type="button" id="locationBtn" class="bg-blue-800 text-white font-medium text-base px-4 py-2 rounded-full hover:bg-blue-950">
-                    <i class='bx bx-location-plus'></i>Current Location
+                <button type="button" id="locationBtn" class="bg-blue-800 text-white font-medium text-base px-6 py-3 rounded-full hover:bg-blue-950">
+                    <i class='bx bxs-edit-location'></i>Current Location
                 </button>
             </div>
         </div>
+        <div class="weather-data grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="weather-left  col-span-1 space-y-4">
+                <div class="card bg-gray-700 p-4 rounded-lg mb-4">
+                    <div class="current-weather flex justify-between items-center">
+                        <div class="details">
+                            <p class="text-sm text-gray-400">Now</p>
+                            <h2 class="text-3xl font-bold">__&deg;C</h2>
+                            <p class="text-gray-400">___</p>
+                        </div>
+                        <div class="weather-icon">
+                            <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Weather icon">
+                        </div>
+                    </div>
+                    <hr class="my-4 border-white mb-4">
+                    <div class="card-footer  space-y-2">
+                        <p class="text-sm text-gray-400"><i class="fa-light fa-calendar"></i> ____</p>
+                        <p class="text-sm text-gray-400"><i class="fa-light fa-location-dot"></i> ____</p>
+                    </div>
+                </div>
+                <div class="card bg-gray-700 p-4 rounded-lg">
+                    <h2 class="text-2xl font-semibold mb-4">5 days Forecast</h2>
+                    <div class="day-forecast grid gap-4 mt-4">
+                        <div class="forecast-item grid grid-cols-3 text-center space-y-2">
+                            <div class="icon-wrapper flex items-center">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+                                <span class="text-lg font-semibold">__&deg;C</span>
+                            </div>
+                            <p class="text-sm text-gray-400">___</p>
+                            <p class="text-sm text-gray-400">___</p>
+                        </div> 
+                        <div class="forecast-item grid grid-cols-3 text-center space-y-2">
+                            <div class="icon-wrapper flex items-center">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+                                <span class="text-lg font-semibold">__&deg;C</span>
+                            </div>
+                            <p class="text-sm text-gray-400">___</p>
+                            <p class="text-sm text-gray-400">___</p>
+                        </div> 
+                        <div class="forecast-item grid grid-cols-3 text-center space-y-2">
+                            <div class="icon-wrapper flex items-center">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+                                <span class="text-lg font-semibold">__&deg;C</span>
+                            </div>
+                            <p class="text-sm text-gray-400">___</p>
+                            <p class="text-sm text-gray-400">___</p>
+                        </div> 
+                        <div class="forecast-item grid grid-cols-3 text-center space-y-2">
+                            <div class="icon-wrapper flex items-center">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+                                <span class="text-lg font-semibold">__&deg;C</span>
+                            </div>
+                            <p class="text-sm text-gray-400">___</p>
+                            <p class="text-sm text-gray-400">___</p>
+                        </div> 
+                        <div class="forecast-item grid grid-cols-3 text-center space-y-2">
+                            <div class="icon-wrapper flex items-center">
+                                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+                                <span class="text-lg font-semibold">__&deg;C</span>
+                            </div>
+                            <p class="text-sm text-gray-400">___</p>
+                            <p class="text-sm text-gray-400">___</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="weather-right col-span-3">
+                <h2 class="text-lg font-bold mb-4">Today's Highlights</h2>
+                <div class="highlights grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="card bg-gray-700 p-4 rounded-lg col-span-1 lg:col-span-2">
+                        <div class="card-head flex justify-between items-center mb-4">
+                            <p class="text-lg">Air Quality Index</p>
+                            <p class="air-index aqi-1 px-3 py-1 rounded-full bg-aqi-1 text-black">Good</p>
+                        </div>
+                        <div class="air-indices grid grid-cols-4 gap-4">
+                            <i class="fa-regular fa-wind fa-3x" style="color: #ffffff;"></i>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">PM2.5</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">PM10</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">SO2</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">CO</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">NO</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">NO2</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">NH3</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                            <div class="item text-center">
+                                <p class="mt-2 text-sm">O3</p>
+                                <h2 class="text-lg">___</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-gray-700 p-4 rounded-lg col-span-1 lg:col-span-2">
+                        <div class="card-head">
+                            <p class="text-lg">Sunrise & Sunset</p>
+                        </div>
+                        <div class="sunrise-sunset grid grid-cols-2 gap-4 mt-4">
+                            <div class="item flex items-center gap-3">
+                                <div class="icon">
+                                    <i class="fa-light fa-sunrise fa-4x" style="color: #ffffff;"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm">Sunrise</p>
+                                    <h2 class="text-2xl">_____</h2>
+                                </div>
+                            </div>
+                            <div class="item flex items-center gap-3">
+                                <div class="icon">
+                                    <i class="fa-light fa-sunset fa-4x" style="color: #ffffff;"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm">Sunset</p>
+                                    <h2 class="text-2xl">_____</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-gray-700 p-4 rounded-lg">
+                        <div class="card-head mb-2">
+                            <p class="text-sm">Humidity</p>
+                        </div>
+                        <div class="card-item flex justify-between">
+                            <i class="fa-light fa-droplet fa-2x" style="color: #ffffff;"></i>
+                            <h2 class="text-lg" id="humidityVal">____%</h2>
+                        </div>
+                    </div>
+                    <div class="card bg-gray-700 p-4 rounded-lg">
+                        <div class="card-head mb-2">
+                            <p class="text-sm">Pressure</p>
+                        </div>
+                        <div class="card-item flex justify-between">
+                            <i class="fa-light fa-compass fa-2x" style="color: #ffffff;"></i>
+                            <h2 class="text-lg" id="pressureVal">____hPa</h2>
+                        </div>
+                    </div>
+                    <div class="card bg-gray-700 p-4 rounded-lg">
+                        <div class="card-head mb-2">
+                            <p class="text-sm">Visibility</p>
+                        </div>
+                        <div class="card-item flex justify-between">
+                            <i class="fa-light fa-eye fa-2x" style="color: #ffffff;"></i>
+                            <h2 class="text-lg" id="visibilityVal">____km</h2>
+                        </div>
+                    </div>
+                    <div class="card bg-gray-700 p-4 rounded-lg">
+                        <div class="card-head mb-2">
+                            <p class="text-sm">Wind Speed</p>
+                        </div>
+                        <div class="card-item flex justify-between">
+                            <i class="fa-light fa-location-arrow fa-2x" style="color: #ffffff;"></i>
+                            <h2 class="text-lg" id="windSpeedVal">____m/s</h2>
+                        </div>
+                    </div>
+                    <div class="card bg-gray-700 p-4 rounded-lg">
+                        <div class="card-head mb-2">
+                            <p class="text-sm">Feels like</p>
+                        </div>
+                        <div class="card-item flex justify-between">
+                            <i class="fa-light fa-temperature-list fa-2x" style="color: #ffffff;"></i>
+                            <h2 class="text-lg" id="feelsVal">____&deg;</h2>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="text-lg font-semibold mt-8 mb-2">Today at</h2>
+                <div class="hourly-forecast grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 gap-4 mt-4">
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                    <div class="card bg-gray-700 text-center p-2 rounded-lg">
+                        <p class="text-sm">9 AM</p>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                        <p class="text-sm">___&deg;C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
+</body> 
 </html>
