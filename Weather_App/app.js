@@ -14,6 +14,7 @@ feelsVal = document.getElementById('feelsVal');
 hourlyForecastCard = document.querySelector('.hourly-forecast');
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
+// Weather Functions
 function getWeatherDetails(name, lat, lon, country, state){
     let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`;
     WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
